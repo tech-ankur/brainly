@@ -3,6 +3,7 @@ import { connectDB, ContentModel, LinkModel, UserModel } from './db.js';
 import bcrypt from 'bcrypt';
 const app=express();
 import dotenv from 'dotenv';
+dotenv.config();
 import {z} from 'zod';
 import { ZodError } from "zod";
 import jwt from 'jsonwebtoken';
@@ -10,7 +11,7 @@ import { JWT_SECRET } from './config.js';
 import { userauth } from './middleware.js';
 import { generateHash } from './utils.js';
 import cors from 'cors';
-dotenv.config();
+
 connectDB()
 
 app.use(cors());
@@ -22,7 +23,7 @@ const signupSchema=z.object({
 });
 
 app.get("/", (req, res) => {
-    res.json({ message: "Brainly Backend is Live!", status: "Healthy" });
+    res.json({ message: "Backend is running!", database: "Connected" });
 });
 app.post("/app/v1/signup", async (req, res) => {
   try {

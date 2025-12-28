@@ -21,7 +21,9 @@ const signupSchema=z.object({
     password:z.string().min(6)
 });
 
-
+app.get("/", (req, res) => {
+    res.json({ message: "Brainly Backend is Live!", status: "Healthy" });
+});
 app.post("/app/v1/signup", async (req, res) => {
   try {
     // Zod validation
@@ -189,3 +191,5 @@ return res.json({
 app.listen(3000,()=>{
     console.log("Server started on port 3000");
 });
+
+export default app;

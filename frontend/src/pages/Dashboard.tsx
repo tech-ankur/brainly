@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { Button } from '../components/Button'
 import PlusIcon from '../icons/PlusIcon'
 import ShareIcon from '../icons/ShareIcon'
@@ -42,7 +42,11 @@ const Dashboard = () => {
       const url=`http://localhost:5173/share/${response.data.message}`;
       alert(url)
     }} />
-       <Button  variant="secondary" size="md" text="Add content" onClick={()=>{setOpenModal(true)}} startIcon={<PlusIcon size="md"/>} />
+       <Button  variant="secondary" size="md" text="Add content" onClick={()=>{
+        setOpenModal(true);
+        setIslogin(true)
+        }
+        } startIcon={<PlusIcon size="md"/>} />
      {islogin && <Button  variant="secondary" size="md" text="Signin" onClick={()=>{navigate("/")}} />}
          
    </div>

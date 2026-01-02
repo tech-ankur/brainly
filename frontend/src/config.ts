@@ -1,4 +1,2 @@
-import dotenv from "dotenv";
-dotenv.config();
-
-export const backendUrl = process.env.BACKEND_URL || "http://localhost:3000";
+export const backendUrl =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";

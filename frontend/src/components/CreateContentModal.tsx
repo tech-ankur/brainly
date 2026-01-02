@@ -2,7 +2,7 @@ import axios from "axios";
 import CrossIcon from "../icons/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { Backend_URL } from "../config";
+import { backendUrl } from "../config";
 import { useRef, useState } from "react";
 
 enum ContentType{
@@ -21,7 +21,7 @@ const [type,setType]=useState(ContentType.YOUTUBE)
  async  function addContent(){
   const title=titleRef.current?.value;
   const link=linkRef.current?.value;
-await axios.post(`${Backend_URL}/app/v1/content`,{
+await axios.post(`${backendUrl}/app/v1/content`,{
     title,
     link,
     type

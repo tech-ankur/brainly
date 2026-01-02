@@ -7,7 +7,7 @@ import CreateContentModal from '../components/CreateContentModal'
 import Sidebar from '../components/Sidebar'
 import { useContent } from '../hooks/useContent'
 import axios from 'axios'
-import { Backend_URL } from '../config'
+import { backendUrl } from '../config'
 import { useNavigate } from 'react-router'
 
 const Dashboard = () => {
@@ -31,7 +31,7 @@ const Dashboard = () => {
       <div className='flex justify-end gap-4 mb-4'>
     <Button  variant="primary" size="md" text="Share Brain"  startIcon={<ShareIcon size="md"/>} 
     onClick={async ()=>{
-     const response= await axios.post(`${Backend_URL}/app/v1/brain/share`,{
+     const response= await axios.post(`${backendUrl}/app/v1/brain/share`,{
         share:true
       },{
         headers:{

@@ -1,7 +1,7 @@
 import Logo from "../icons/Logo"
-import Twitter from "../icons/twitter"
-import Youtube from "../icons/youtube"
-import Sidebaritems from "./sidebaritems"
+import Twitter from "../icons/Twitter"
+import Youtube from "../icons/Youtube"
+import Sidebaritems from "./Sidebaritems"
 
 
 const Sidebar = () => {

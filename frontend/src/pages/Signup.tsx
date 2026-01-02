@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Button } from "../components/Button"
 import { Input } from "../components/Input"
 import axios from "axios";
-import { Backend_URL } from "../config";
+import { backendUrl } from "../config";
 import { useNavigate } from "react-router";
 
 const Signup = () => {
@@ -21,7 +21,7 @@ async function onClickhandler(
     const username = UserRef.current?.value
     const password = PasswordRef.current?.value
 
-    await axios.post(`${Backend_URL}/app/v1/signup`, {
+    await axios.post(`${backendUrl}/app/v1/signup`, {
       username,
       password,
     })

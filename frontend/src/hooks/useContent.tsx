@@ -1,25 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Backend_URL } from "../config";
+import { backendUrl } from "../config";
+
 export function useContent() {
-    const[content,setContent]=useState([])
+  const [content, setContent] = useState<any[]>([]);
 
-    function fetchContent(){
-       
-const response =axios.get(`${Backend_URL}/app/v1/content`,{
-    headers:{
-      "Authorization":localStorage.getItem("token")
-    }
-  })
-.then((response)=>{
-setContent(response.data.content)
-})
+  async function fetchContent() {
+    const response = await axios.get(`${backendUrl}/app/v1/content`, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
 
-    }
- useEffect(()=>{
-fetchContent()
+    setContent(response.data.content);
+  }
 
+  useEffect(() => {
+    fetchContent();
+  }, []);
 
-},[])
-return {content,fetchContent}
+  return { content, fetchContent };
 }
